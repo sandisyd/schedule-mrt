@@ -43,7 +43,9 @@ func GetAllStation(c *gin.Context, service Service){
 }
 
 func CheckScheduleByStation(c *gin.Context, service Service){
-	datas, err := service.CheckScheduleByStation()
+	id := c.Param("id")
+
+	datas, err := service.CheckScheduleByStation(id)
 
 	if err != nil {
 		c.JSON(
